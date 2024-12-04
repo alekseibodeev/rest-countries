@@ -5,7 +5,7 @@ export type CountryData = {
   area: number;
   borders: string[];
   callingCodes: string[];
-  capital: string[];
+  capital: string;
   cioc: string[];
   currencies: {
     code: string;
