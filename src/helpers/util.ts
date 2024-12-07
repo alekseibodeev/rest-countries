@@ -20,14 +20,17 @@ export const formatLanguages = (languages: Language[]) => {
   return languages.map(({ name }) => name).join(', ');
 };
 
-export const formatCurrencies = (currencies: Currency[]) => {
+export const formatCurrencies = (currencies: Currency[] | undefined) => {
+  if (!currencies) return '**none**';
   return currencies.map(({ name }) => name).join(', ');
 };
 
 export const findBorderCountries = (
-  borders: string[],
+  borders: string[] | undefined,
   countries: ReturnType<typeof useCountries>,
 ) => {
+  if (!borders) return [];
+
   const bordersSet = new Set(borders);
   const borderCountries: typeof countries = [];
 

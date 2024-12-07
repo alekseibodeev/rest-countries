@@ -3,11 +3,11 @@ export type CountryData = {
   alpha3Code: string;
   altSpellings: string[];
   area: number;
-  borders: string[];
+  borders?: string[];
   callingCodes: string[];
-  capital: string;
+  capital?: string;
   cioc: string[];
-  currencies: Currency[];
+  currencies?: Currency[];
   demonym: string;
   independent: string;
   flag: string;

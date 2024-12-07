@@ -110,7 +110,7 @@ const Country = () => {
                 <Bold>Sub Region:</Bold> {country.subregion}
               </InformationItem>
               <InformationItem>
-                <Bold>Capital:</Bold> {country.capital}
+                <Bold>Capital:</Bold> {country.capital || '**none**'}
               </InformationItem>
             </div>
             <div>
@@ -128,20 +128,23 @@ const Country = () => {
           </InformationWrapper>
           <BordersWrapper>
             <BordersTitle>
-              <Bold>Border Countries:</Bold>
+              <Bold>Border Countries:</Bold>{' '}
+              {!borderCountries.length && '**none**'}
             </BordersTitle>
-            <Borders role="list">
-              {borderCountries.map((country) => (
-                <li key={country.alpha3Code}>
-                  <BorderItem
-                    to={`/country/${applyKebab(country.name)}`}
-                    as={Link}
-                  >
-                    {country.name}
-                  </BorderItem>
-                </li>
-              ))}
-            </Borders>
+            {!!borderCountries.length && (
+              <Borders role="list">
+                {borderCountries.map((country) => (
+                  <li key={country.alpha3Code}>
+                    <BorderItem
+                      to={`/country/${applyKebab(country.name)}`}
+                      as={Link}
+                    >
+                      {country.name}
+                    </BorderItem>
+                  </li>
+                ))}
+              </Borders>
+            )}
           </BordersWrapper>
         </div>
       </CountryWrapper>

@@ -91,7 +91,7 @@ const Home = () => {
             name={country.name}
             population={country.population}
             region={country.region}
-            capital={country.capital}
+            capital={country.capital || '**none**'}
           />
         ))}
       </CardsWrapper>
