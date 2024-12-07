@@ -55,10 +55,13 @@ const Home = () => {
               nextSearchParams.region = region;
             }
 
-            setSearchParams(nextSearchParams);
+            setSearchParams(nextSearchParams, {
+              replace: !(name === null && region === null),
+            });
           }}
         />
         <Select
+          value={region ?? ''}
           onValueChange={(value) => {
             const nextSearchParams: { name?: string; region?: string } = {};
 
@@ -70,7 +73,9 @@ const Home = () => {
               nextSearchParams.region = value;
             }
 
-            setSearchParams(nextSearchParams);
+            setSearchParams(nextSearchParams, {
+              replace: !(name === null && region === null),
+            });
           }}
         >
           <Select.Trigger placeholder="Filter by Region" />
