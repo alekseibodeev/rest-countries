@@ -27,6 +27,10 @@ const CountryWrapper = styled.div`
   margin-bottom: 12rem;
 `;
 
+const Cover = styled.img`
+  box-shadow: 0.25rem 0.25rem 1rem 0.25rem ${({ theme }) => theme.color.shadow};
+`;
+
 const CountryTitle = styled.h1`
   font-size: 2rem;
   font-weight: 800;
@@ -92,7 +96,7 @@ const Country = () => {
         </Button>
       </ControlWrapper>
       <CountryWrapper>
-        <img src={country.flag} alt="" />
+        <Cover src={country.flag} alt="" />
         <div>
           <CountryTitle>{country.name}</CountryTitle>
           <InformationWrapper>
