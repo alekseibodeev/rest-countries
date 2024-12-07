@@ -1,6 +1,9 @@
+import { Link } from 'react-router';
 import styled from 'styled-components';
 
 import Bold from '@/components/bold';
+
+import { applyKebab, formatPopulation } from '@/helpers/util';
 
 type CardProps = {
   flag: string;
@@ -37,14 +40,21 @@ const Title = styled.h2`
   margin-bottom: 0.75em;
 `;
 
+const PlainLink = styled(Link)`
+  text-decoration: none;
+  color: currentColor;
+`;
+
 const Card = ({ flag, name, population, region, capital }: CardProps) => {
   return (
     <Wrapper>
       <Cover src={flag} alt="" loading="lazy" />
       <Body>
-        <Title>{name}</Title>
+        <Title>
+          <PlainLink to={`/country/${applyKebab(name)}`}>{name}</PlainLink>
+        </Title>
         <p>
-          <Bold>Population:</Bold> {population}
+          <Bold>Population:</Bold> {formatPopulation(population)}
         </p>
         <p>
           <Bold>Region:</Bold> {region}
