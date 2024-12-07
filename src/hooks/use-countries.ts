@@ -1,22 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useOutletContext } from 'react-router';
 
 import { fetchCountries } from '@/helpers/api';
 
 const useCountries = () => {
-  const [data, setData] = useState<Awaited<
-    ReturnType<typeof fetchCountries>
-  > | null>(null);
-  const [error, setError] = useState<Error | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    fetchCountries()
-      .then(setData)
-      .catch(setError)
-      .finally(() => setIsLoading(false));
-  }, []);
-
-  return { data, error, isLoading };
+  return useOutletContext<Awaited<ReturnType<typeof fetchCountries>>>();
 };
 
 export default useCountries;

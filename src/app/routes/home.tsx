@@ -27,16 +27,8 @@ const FiltersWrapper = styled.div`
 `;
 
 const Home = () => {
-  const { data, error, isLoading } = useCountries();
+  const data = useCountries();
   const [searchParams, setSearchParams] = useSearchParams();
-
-  if (error) {
-    return <h1>{error.message}</h1>;
-  }
-
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
 
   const name = searchParams.get('name');
   const region = searchParams.get('region');

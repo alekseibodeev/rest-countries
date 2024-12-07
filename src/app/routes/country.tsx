@@ -65,15 +65,11 @@ const BorderItem = styled(Button)`
 `;
 
 const Country = () => {
-  const { data, error, isLoading } = useCountries();
+  const data = useCountries();
   const { name } = useParams();
 
-  if (error || !name) {
-    return <h1>Ehh, error...</h1>;
-  }
-
-  if (isLoading) {
-    return <h1>A big spinner would be nice...</h1>;
+  if (!name) {
+    return <h1>TODO: ERROR PAGE</h1>;
   }
 
   const countryName = removeKebab(name);
@@ -86,7 +82,7 @@ const Country = () => {
     return <h1>404: Not Found</h1>;
   }
 
-  const borderCountries = findBorderCountries(country.borders, data!);
+  const borderCountries = findBorderCountries(country.borders, data);
 
   return (
     <>

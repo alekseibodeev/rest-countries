@@ -26,7 +26,7 @@ export const formatCurrencies = (currencies: Currency[]) => {
 
 export const findBorderCountries = (
   borders: string[],
-  countries: NonNullable<ReturnType<typeof useCountries>['data']>,
+  countries: ReturnType<typeof useCountries>,
 ) => {
   const bordersSet = new Set(borders);
   const borderCountries: typeof countries = [];

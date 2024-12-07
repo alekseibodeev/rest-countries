@@ -1,8 +1,12 @@
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router';
 import styled from 'styled-components';
 
+import BigSpinner from '@/components/big-spinner';
 import Container from '@/components/container';
 import Header from '@/components/header';
+
+import { fetchCountries } from '@/helpers/api';
 
 const Wrapper = styled.div`
   color: ${({ theme }) => theme.color.text};
@@ -15,14 +19,37 @@ const Wrapper = styled.div`
   min-height: 100vh;
 `;
 
+const StretchedContainer = styled(Container)`
+  height: 100%;
+`;
+
 const Root = () => {
+  const [data, setData] = useState<Awaited<
+    ReturnType<typeof fetchCountries>
+  > | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetchCountries()
+      .then(setData)
+      .catch(setError)
+      .finally(() => setIsLoading(false));
+  }, []);
+
   return (
     <Wrapper>
       <Header />
       <main>
-        <Container>
-          <Outlet />
-        </Container>
+        <StretchedContainer>
+          {error ? (
+            <h1>TODO: ERROR PAGE</h1>
+          ) : isLoading ? (
+            <BigSpinner />
+          ) : (
+            <Outlet context={data!} />
+          )}
+        </StretchedContainer>
       </main>
     </Wrapper>
   );
