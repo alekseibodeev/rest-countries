@@ -7,11 +7,7 @@ export type CountryData = {
   callingCodes: string[];
   capital: string;
   cioc: string[];
-  currencies: {
-    code: string;
-    name: string;
-    symbol: string;
-  }[];
+  currencies: Currency[];
   demonym: string;
   independent: string;
   flag: string;
@@ -20,12 +16,7 @@ export type CountryData = {
     png: string;
   };
   gini?: string;
-  languages: {
-    iso639_1: string;
-    iso639_2: string;
-    name: string;
-    nativeName: string;
-  }[];
+  languages: Language[];
   latlng: [number, number];
   name: string;
   nativeName: string;
@@ -40,4 +31,17 @@ export type CountryData = {
   timezones: string[];
   topLevelDomain: string[];
   translations: { [key: string]: string };
+};
+
+export type Currency = {
+  code: string;
+  name: string;
+  symbol: string;
+};
+
+export type Language = {
+  iso639_1: string;
+  iso639_2: string;
+  name: string;
+  nativeName: string;
 };
