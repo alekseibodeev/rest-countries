@@ -21,6 +21,7 @@ const Wrapper = styled.article`
 `;
 
 const Cover = styled.img`
+  width: 100%;
   aspect-ratio: 1.5;
   object-fit: cover;
   object-position: center;
