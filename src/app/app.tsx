@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 
+import Country from '@/app/routes/country';
 import Home from '@/app/routes/home';
 import Root from '@/app/routes/root';
 
@@ -18,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
+            <Route path="country/:name" element={<Country />} />
           </Route>
         </Routes>
       </BrowserRouter>
