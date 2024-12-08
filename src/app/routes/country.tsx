@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Bold from '@/components/bold';
 import Button from '@/components/button';
+import ErrorFallback from '@/components/error-fallback';
 
 import {
   applyKebab,
@@ -73,7 +74,7 @@ const Country = () => {
   const { name } = useParams();
 
   if (!name) {
-    return <h1>TODO: ERROR PAGE</h1>;
+    return <ErrorFallback message="Error 404: Not Found" />;
   }
 
   const countryName = removeKebab(name);
@@ -83,7 +84,7 @@ const Country = () => {
   );
 
   if (!country) {
-    return <h1>404: Not Found</h1>;
+    return <ErrorFallback message="Error 404: Not Found" />;
   }
 
   const borderCountries = findBorderCountries(country.borders, data);

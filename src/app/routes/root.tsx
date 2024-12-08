@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import BigSpinner from '@/components/big-spinner';
 import Container from '@/components/container';
+import ErrorFallback from '@/components/error-fallback';
 import Header from '@/components/header';
 
 import { fetchCountries } from '@/helpers/api';
@@ -43,7 +44,7 @@ const Root = () => {
       <main>
         <StretchedContainer>
           {error ? (
-            <h1>TODO: ERROR PAGE</h1>
+            <ErrorFallback message={error.message} />
           ) : isLoading ? (
             <BigSpinner />
           ) : (
