@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const Input = styled.input`
+  color: ${({ theme }) => theme.color.text};
+  background-color: ${({ theme }) => theme.color.element};
   font-size: 0.875rem;
   font-weight: 600;
   border: none;

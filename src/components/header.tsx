@@ -1,6 +1,10 @@
+import { Moon, Sun } from 'lucide-react';
 import styled from 'styled-components';
 
+import Button from '@/components/button';
 import Container from '@/components/container';
+
+import useColorTheme from '@/hooks/use-color-theme';
 
 const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.element};
@@ -13,12 +17,35 @@ const Logo = styled.span`
   font-weight: 800;
 `;
 
+const FlexContainer = styled(Container)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const BoldButton = styled(Button)`
+  font-weight: 600;
+`;
+
 const Header = () => {
+  const { colorTheme, toggleTheme } = useColorTheme();
+
   return (
     <Wrapper>
-      <Container>
+      <FlexContainer>
         <Logo>Where in the world?</Logo>
-      </Container>
+        <BoldButton onClick={() => toggleTheme()}>
+          {colorTheme === 'light' ? (
+            <>
+              Dark <Moon />
+            </>
+          ) : (
+            <>
+              Light <Sun />
+            </>
+          )}
+        </BoldButton>
+      </FlexContainer>
     </Wrapper>
   );
 };

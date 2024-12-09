@@ -23,6 +23,8 @@ const styles = css`
   body {
     min-height: 100vh;
     line-height: 1.5;
+    color: ${({ theme }) => theme.color.text};
+    background-color: ${({ theme }) => theme.color.background};
   }
 
   h1,
