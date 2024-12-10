@@ -10,7 +10,7 @@ import useCountries from '@/hooks/use-countries';
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
-  margin-block: 3.5rem;
+  margin-block: clamp(1.5rem, 0.8469rem + 3.2653vw, 3.5rem);
 `;
 
 const CardsWrapper = styled.div`
@@ -24,6 +24,12 @@ const FiltersWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
 `;
 
 const Home = () => {

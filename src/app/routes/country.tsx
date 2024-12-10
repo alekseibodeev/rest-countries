@@ -26,6 +26,11 @@ const CountryWrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 8rem;
   margin-bottom: 12rem;
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 `;
 
 const Cover = styled.img`
@@ -43,6 +48,12 @@ const InformationWrapper = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 4rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const InformationItem = styled.p`
@@ -52,6 +63,10 @@ const InformationItem = styled.p`
 const BordersWrapper = styled.div`
   display: flex;
   gap: 1rem;
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const BordersTitle = styled.p`

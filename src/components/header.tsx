@@ -8,23 +8,25 @@ import useColorTheme from '@/hooks/use-color-theme';
 
 const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.color.element};
-  padding-block: 1.5rem;
+  padding-block: clamp(0.875rem, 0.6709rem + 1.0204vw, 1.5rem);
   box-shadow: 0rem 0.25rem 0.25rem ${({ theme }) => theme.color.shadow};
 `;
 
 const Logo = styled.span`
-  font-size: 1.5rem;
+  font-size: clamp(0.875rem, 0.6709rem + 1.0204vw, 1.5rem);
   font-weight: 800;
 `;
 
-const FlexContainer = styled(Container)`
+const HeaderContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const BoldButton = styled(Button)`
+const HeaderButton = styled(Button)`
+  font-size: clamp(0.75rem, 0.6684rem + 0.4082vw, 1rem);
   font-weight: 600;
+  box-shadow: none;
 `;
 
 const Header = () => {
@@ -32,20 +34,20 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <FlexContainer>
+      <HeaderContainer>
         <Logo>Where in the world?</Logo>
-        <BoldButton onClick={() => toggleTheme()}>
+        <HeaderButton onClick={() => toggleTheme()}>
           {colorTheme === 'light' ? (
             <>
-              Dark <Moon />
+              <Moon /> Dark Mode
             </>
           ) : (
             <>
-              Light <Sun />
+              <Sun /> Light Mode
             </>
           )}
-        </BoldButton>
-      </FlexContainer>
+        </HeaderButton>
+      </HeaderContainer>
     </Wrapper>
   );
 };
