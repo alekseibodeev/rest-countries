@@ -5,6 +5,8 @@ import Card from '@/components/card';
 import SearchBar from '@/components/search-bar';
 import Select from '@/components/select';
 
+import { createFlagImgPath } from '@/helpers/util';
+
 import useCountries from '@/hooks/use-countries';
 
 const Wrapper = styled.div`
@@ -98,7 +100,7 @@ const Home = () => {
         {countries.map((country) => (
           <Card
             key={country.alpha3Code}
-            flag={country.flag}
+            flag={createFlagImgPath(country.alpha2Code)}
             name={country.name}
             population={country.population}
             region={country.region}

@@ -1,11 +1,11 @@
 import { CountryData } from '@/types/api';
 
 type QueryParams =
+  | 'alpha2Code'
   | 'alpha3Code'
   | 'borders'
   | 'capital'
   | 'currencies'
-  | 'flag'
   | 'languages'
   | 'name'
   | 'nativeName'
@@ -17,11 +17,11 @@ type QueryParams =
 const API_BASE_URL = 'https://restcountries.com/v2/all';
 
 const QUERY_PARAMS: Array<QueryParams> = [
+  'alpha2Code',
   'alpha3Code',
   'borders',
   'capital',
   'currencies',
-  'flag',
   'languages',
   'name',
   'nativeName',

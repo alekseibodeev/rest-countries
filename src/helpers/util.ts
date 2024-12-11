@@ -41,3 +41,7 @@ export const findBorderCountries = (
 
   return borderCountries;
 };
+
+export const createFlagImgPath = (alpha2Code: string) => {
+  return `${import.meta.env.BASE_URL}flags/${alpha2Code.toLowerCase()}.svg`;
+};

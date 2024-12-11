@@ -8,6 +8,7 @@ import ErrorFallback from '@/components/error-fallback';
 
 import {
   applyKebab,
+  createFlagImgPath,
   findBorderCountries,
   formatCurrencies,
   formatLanguages,
@@ -112,7 +113,7 @@ const Country = () => {
         </Button>
       </ControlWrapper>
       <CountryWrapper>
-        <Cover src={country.flag} alt="" />
+        <Cover src={createFlagImgPath(country.alpha2Code)} alt="" />
         <div>
           <CountryTitle>{country.name}</CountryTitle>
           <InformationWrapper>
