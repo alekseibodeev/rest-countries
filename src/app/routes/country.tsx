@@ -7,13 +7,12 @@ import Button from '@/components/button';
 import ErrorFallback from '@/components/error-fallback';
 
 import {
-  applyKebab,
   createFlagImgPath,
   findBorderCountries,
+  findCountryByCode,
   formatCurrencies,
   formatLanguages,
   formatPopulation,
-  removeKebab,
 } from '@/helpers/util';
 
 import useCountries from '@/hooks/use-countries';
@@ -87,17 +86,13 @@ const BorderItem = styled(Button)`
 
 const Country = () => {
   const data = useCountries();
-  const { name } = useParams();
+  const { code } = useParams();
 
-  if (!name) {
+  if (!code) {
     return <ErrorFallback message="Error 404: Not Found" />;
   }
 
-  const countryName = removeKebab(name);
-
-  const country = data!.find(
-    (country) => country.name.toLowerCase() === countryName,
-  );
+  const country = findCountryByCode(data, code);
 
   if (!country) {
     return <ErrorFallback message="Error 404: Not Found" />;
@@ -157,7 +152,7 @@ const Country = () => {
                 {borderCountries.map((country) => (
                   <li key={country.alpha3Code}>
                     <BorderItem
-                      to={`/country/${applyKebab(country.name)}`}
+                      to={`/country/${country.alpha2Code.toLowerCase()}`}
                       as={Link}
                     >
                       {country.name}

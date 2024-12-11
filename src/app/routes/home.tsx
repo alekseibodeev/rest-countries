@@ -100,6 +100,7 @@ const Home = () => {
         {countries.map((country) => (
           <Card
             key={country.alpha3Code}
+            code={country.alpha2Code.toLowerCase()}
             flag={createFlagImgPath(country.alpha2Code)}
             name={country.name}
             population={country.population}

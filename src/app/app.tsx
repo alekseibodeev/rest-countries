@@ -17,7 +17,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
-            <Route path="country/:name" element={<Country />} />
+            <Route path="country/:code" element={<Country />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 import Bold from '@/components/bold';
 
-import { applyKebab, formatPopulation } from '@/helpers/util';
+import { formatPopulation } from '@/helpers/util';
 
 type CardProps = {
+  code: string;
   flag: string;
   name: string;
   population: number;
@@ -46,13 +47,13 @@ const PlainLink = styled(Link)`
   color: currentColor;
 `;
 
-const Card = ({ flag, name, population, region, capital }: CardProps) => {
+const Card = ({ code, flag, name, population, region, capital }: CardProps) => {
   return (
     <Wrapper>
       <Cover src={flag} alt="" loading="lazy" />
       <Body>
         <Title>
-          <PlainLink to={`/country/${applyKebab(name)}`}>{name}</PlainLink>
+          <PlainLink to={`/country/${code}`}>{name}</PlainLink>
         </Title>
         <p>
           <Bold>Population:</Bold> {formatPopulation(population)}

@@ -42,6 +42,14 @@ export const findBorderCountries = (
   return borderCountries;
 };
 
+export const findCountryByCode = (
+  countries: ReturnType<typeof useCountries>,
+  alpha2Code: string,
+) => {
+  alpha2Code = alpha2Code.toUpperCase();
+  return countries.find((country) => country.alpha2Code === alpha2Code);
+};
+
 export const createFlagImgPath = (alpha2Code: string) => {
   return `${import.meta.env.BASE_URL}flags/${alpha2Code.toLowerCase()}.svg`;
 };
