@@ -9,19 +9,17 @@ import Header from '@/components/header';
 
 import { fetchCountries } from '@/helpers/api';
 
+import { color, font, fontSize, fontWeight } from '@/styles/helpers';
+
 const Wrapper = styled.div`
-  color: ${({ theme }) => theme.color.text};
-  background-color: ${({ theme }) => theme.color.background};
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 1rem;
-  font-weight: 300;
+  color: ${color('body-content')};
+  background-color: ${color('body-background')};
+  font-family: ${font('body')};
+  font-size: ${fontSize('400')};
+  font-weight: ${fontWeight('regular')};
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
-`;
-
-const StretchedContainer = styled(Container)`
-  height: 100%;
 `;
 
 const Root = () => {
@@ -42,7 +40,7 @@ const Root = () => {
     <Wrapper>
       <Header />
       <main>
-        <StretchedContainer>
+        <Container $fullHeight>
           {error ? (
             <ErrorFallback message={error.message} />
           ) : isLoading ? (
@@ -50,7 +48,7 @@ const Root = () => {
           ) : (
             <Outlet context={data!} />
           )}
-        </StretchedContainer>
+        </Container>
       </main>
     </Wrapper>
   );
