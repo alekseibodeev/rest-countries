@@ -4,15 +4,19 @@ import styled from 'styled-components';
 
 import Input from '@/components/input';
 
+import { color, space } from '@/styles/helpers';
+
 const Wrapper = styled.form`
   position: relative;
+
+  --input-padding-inline: ${space('1600')};
 `;
 
 const SearchIcon = styled.div`
   position: absolute;
   top: 50%;
   left: 1.25em;
-  color: ${({ theme }) => theme.color.input};
+  color: ${color('neutral-100')};
   transform: translateY(-50%);
   pointer-events: none;
 `;

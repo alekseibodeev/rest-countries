@@ -5,6 +5,14 @@ import Bold from '@/components/bold';
 
 import { formatPopulation } from '@/helpers/util';
 
+import {
+  borderRadius,
+  color,
+  fontSize,
+  fontWeight,
+  space,
+} from '@/styles/helpers';
+
 type CardProps = {
   code: string;
   flag: string;
@@ -15,10 +23,10 @@ type CardProps = {
 };
 
 const Wrapper = styled.article`
-  color: ${({ theme }) => theme.color.text};
-  background-color: ${({ theme }) => theme.color.element};
-  border-radius: 0.25rem;
-  box-shadow: 0.125rem 0.125rem 0.25rem ${({ theme }) => theme.color.shadow};
+  color: ${color('base-content')};
+  background-color: ${color('base-background')};
+  border-radius: ${borderRadius('100')};
+  box-shadow: 0.125rem 0.125rem 0.25rem ${color('shadow-50')};
 `;
 
 const Cover = styled.img`
@@ -26,19 +34,19 @@ const Cover = styled.img`
   aspect-ratio: 1.5;
   object-fit: cover;
   object-position: center;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: ${borderRadius('100')};
+  border-top-right-radius: ${borderRadius('100')};
 `;
 
 const Body = styled.div`
-  font-size: 0.875rem;
-  padding: 1.5rem;
-  padding-bottom: 2.5rem;
+  font-size: ${fontSize('350')};
+  padding: ${space('600')};
+  padding-bottom: ${space('1000')};
 `;
 
 const Title = styled.h2`
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: ${fontSize('500')};
+  font-weight: ${fontWeight('bold')};
   margin-bottom: 0.75em;
 `;
 

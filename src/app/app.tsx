@@ -5,7 +5,8 @@ import Home from '@/app/routes/home';
 import Root from '@/app/routes/root';
 
 import ColorThemeProvider from '@/components/color-theme-provider';
-import GlobalStyles from '@/components/global-styles';
+
+import GlobalStyles from '@/styles/global-styles';
 
 import './fonts.css';
 

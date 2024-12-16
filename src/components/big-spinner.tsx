@@ -1,15 +1,17 @@
 import { LoaderCircle } from 'lucide-react';
 import styled, { keyframes } from 'styled-components';
 
+import { fontWeight, space } from '@/styles/helpers';
+
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  font-size: 1.25rem;
-  font-weight: 600;
+  gap: ${space('400')};
+  font-size: ${space('500')};
+  font-weight: ${fontWeight('medium')};
 `;
 
 const rotation = keyframes`

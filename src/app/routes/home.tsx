@@ -9,17 +9,19 @@ import { createFlagImgPath } from '@/helpers/util';
 
 import useCountries from '@/hooks/use-countries';
 
+import { breakpoint, space } from '@/styles/helpers';
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: auto 1fr;
-  margin-block: clamp(1.5rem, 0.8469rem + 3.2653vw, 3.5rem);
+  padding-block: clamp(${space('600')}, 0.8469rem + 3.2653vw, ${space('1400')});
 `;
 
 const CardsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 5rem;
-  margin-block: 3.5rem;
+  gap: ${space('2000')};
+  padding-block: ${space('1400')};
 `;
 
 const FiltersWrapper = styled.div`
@@ -27,10 +29,10 @@ const FiltersWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${breakpoint('md')}) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 2rem;
+    gap: ${space('800')};
   }
 `;
 

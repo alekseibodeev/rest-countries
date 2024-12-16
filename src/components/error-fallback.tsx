@@ -1,18 +1,20 @@
 import { Ban } from 'lucide-react';
 import styled from 'styled-components';
 
+import { fontSize, fontWeight, space } from '@/styles/helpers';
+
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: ${space('400')};
 `;
 
 const Message = styled.h1`
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: ${fontSize('600')};
+  font-weight: ${fontWeight('bold')};
   text-align: center;
 `;
 

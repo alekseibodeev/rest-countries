@@ -3,23 +3,32 @@ import { Check, ChevronDown } from 'lucide-react';
 import { ReactNode } from 'react';
 import styled from 'styled-components';
 
+import {
+  borderRadius,
+  borderWidth,
+  color,
+  fontSize,
+  fontWeight,
+  space,
+} from '@/styles/helpers';
+
 const TriggerWrapper = styled(RadixSelect.Trigger)`
-  color: ${({ theme }) => theme.color.text};
-  background-color: ${({ theme }) => theme.color.element};
+  color: ${color('base-content')};
+  background-color: ${color('base-background')};
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: ${fontSize('350')};
+  font-weight: ${fontWeight('medium')};
   border: none;
-  border-radius: 0.25rem;
-  padding: 1rem 1.5rem;
-  box-shadow: 0rem 0rem 0.5rem ${({ theme }) => theme.color.shadow};
+  border-radius: ${borderRadius('100')};
+  padding: ${space('400')} ${space('600')};
+  box-shadow: 0rem 0rem 0.5rem ${color('shadow-50')};
   width: 12.5rem;
   cursor: pointer;
 
   &:focus-visible {
-    outline: 0.125rem solid ${({ theme }) => theme.color.text};
+    outline: ${borderWidth('050')} solid ${color('body-content')};
   }
 `;
 
@@ -33,14 +42,14 @@ const Trigger = ({ placeholder }: { placeholder: ReactNode }) => (
 );
 
 const ContentWrapper = styled(RadixSelect.Content)`
-  color: ${({ theme }) => theme.color.text};
-  background-color: ${({ theme }) => theme.color.element};
-  font-size: 0.875rem;
-  font-weight: 600;
+  color: ${color('base-content')};
+  background-color: ${color('base-background')};
+  font-size: ${fontSize('350')};
+  font-weight: ${fontWeight('medium')};
   border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 0.5rem;
-  box-shadow: 0.25rem 0.25rem 0.5rem ${({ theme }) => theme.color.shadow};
+  border-radius: ${borderRadius('100')};
+  padding: ${space('200')};
+  box-shadow: 0.25rem 0.25rem 0.5rem ${color('shadow-50')};
   width: 12.5rem;
   cursor: pointer;
 `;
@@ -52,15 +61,15 @@ const Content = ({ children }: { children: ReactNode }) => (
 );
 
 const ItemWrapper = styled(RadixSelect.Item)`
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
+  padding: ${space('200')} ${space('400')};
+  border-radius: ${borderRadius('100')};
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   &[data-highlighted] {
     outline: none;
-    background-color: ${({ theme }) => theme.color.background};
+    background-color: ${color('body-background')};
   }
 `;
 

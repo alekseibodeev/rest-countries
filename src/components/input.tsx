@@ -1,17 +1,27 @@
 import styled from 'styled-components';
 
+import {
+  borderRadius,
+  borderWidth,
+  color,
+  fontSize,
+  fontWeight,
+  space,
+} from '@/styles/helpers';
+
 const Input = styled.input`
-  color: ${({ theme }) => theme.color.text};
-  background-color: ${({ theme }) => theme.color.element};
-  font-size: 0.875rem;
-  font-weight: 600;
+  color: var(--input-color-content, ${color('base-content')});
+  background-color: var(--input-color-background, ${color('base-background')});
+  font-size: ${fontSize('350')};
+  font-weight: ${fontWeight('medium')};
   border: none;
-  border-radius: 0.25rem;
-  padding: 1rem 4rem;
-  box-shadow: 0rem 0rem 0.5rem ${({ theme }) => theme.color.shadow};
+  border-radius: ${borderRadius('100')};
+  padding-block: var(--input-padding-block, ${space('400')});
+  padding-inline: var(--input-padding-inline, ${space('400')});
+  box-shadow: 0rem 0rem 0.5rem ${color('shadow-50')};
 
   &:focus-visible {
-    outline: 0.125rem solid ${({ theme }) => theme.color.text};
+    outline: ${borderWidth('050')} solid ${color('body-content')};
   }
 `;
 

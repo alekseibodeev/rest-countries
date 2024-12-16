@@ -17,71 +17,79 @@ import {
 
 import useCountries from '@/hooks/use-countries';
 
+import {
+  breakpoint,
+  color,
+  fontSize,
+  fontWeight,
+  space,
+} from '@/styles/helpers';
+
 const ControlWrapper = styled.div`
-  margin-block: 3.5rem;
+  padding-block: ${space('1400')};
 `;
 
 const CountryWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8rem;
-  margin-bottom: 12rem;
+  gap: ${space('3200')};
+  padding-bottom: ${space('3200')};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${breakpoint('md')}) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: ${space('800')};
   }
 `;
 
 const Cover = styled.img`
-  box-shadow: 0.25rem 0.25rem 1rem 0.25rem ${({ theme }) => theme.color.shadow};
+  box-shadow: 0.25rem 0.25rem 1rem 0.25rem ${color('shadow-50')};
 `;
 
 const CountryTitle = styled.h1`
-  font-size: 2rem;
-  font-weight: 800;
-  margin-block: 2rem;
+  font-size: ${fontSize('800')};
+  font-weight: ${fontWeight('bold')};
+  margin-block: ${space('800')};
 `;
 
 const InformationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 4rem;
+  margin-bottom: ${space('1600')};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${breakpoint('md')}) {
     flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    gap: ${space('800')};
+    margin-bottom: ${space('800')};
   }
 `;
 
 const InformationItem = styled.p`
-  margin-bottom: 0.5rem;
+  margin-bottom: ${space('200')};
 `;
 
 const BordersWrapper = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: ${space('400')};
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: ${breakpoint('md')}) {
     flex-direction: column;
   }
 `;
 
 const BordersTitle = styled.p`
   flex-shrink: 0;
-  margin-block: 0.25rem;
+  margin-block: ${space('100')};
 `;
 
 const Borders = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: ${space('200')};
 `;
 
 const BorderItem = styled(Button)`
-  padding-block: 0.25rem;
+  padding-block: ${space('200')};
 `;
 
 const Country = () => {

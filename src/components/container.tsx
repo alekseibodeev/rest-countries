@@ -9,7 +9,7 @@ type ContainerProps = {
 };
 
 const Container = styled.div<ContainerProps>`
-  max-width: ${({ $size = 'lg' }) => breakpoint($size)};
+  max-width: ${({ $size = 'xl' }) => breakpoint($size)};
   padding-inline: ${space('400')};
   margin-inline: auto;
 

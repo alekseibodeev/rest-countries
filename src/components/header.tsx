@@ -6,15 +6,21 @@ import Container from '@/components/container';
 
 import useColorTheme from '@/hooks/use-color-theme';
 
+import { color, fontSize, fontWeight, space } from '@/styles/helpers';
+
 const Wrapper = styled.header`
-  background-color: ${({ theme }) => theme.color.element};
-  padding-block: clamp(0.875rem, 0.6709rem + 1.0204vw, 1.5rem);
-  box-shadow: 0rem 0.25rem 0.25rem ${({ theme }) => theme.color.shadow};
+  background-color: ${color('base-background')};
+  padding-block: clamp(${space('350')}, 0.6709rem + 1.0204vw, ${space('600')});
+  box-shadow: 0rem 0.25rem 0.25rem ${color('shadow-50')};
 `;
 
 const Logo = styled.span`
-  font-size: clamp(0.875rem, 0.6709rem + 1.0204vw, 1.5rem);
-  font-weight: 800;
+  font-size: clamp(
+    ${fontSize('350')},
+    0.6709rem + 1.0204vw,
+    ${fontSize('600')}
+  );
+  font-weight: ${fontWeight('bold')};
 `;
 
 const HeaderContainer = styled(Container)`
@@ -24,8 +30,12 @@ const HeaderContainer = styled(Container)`
 `;
 
 const HeaderButton = styled(Button)`
-  font-size: clamp(0.75rem, 0.6684rem + 0.4082vw, 1rem);
-  font-weight: 600;
+  font-size: clamp(
+    ${fontSize('300')},
+    0.6684rem + 0.4082vw,
+    ${fontSize('400')}
+  );
+  font-weight: ${fontWeight('medium')};
   box-shadow: none;
 `;
 
