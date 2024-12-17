@@ -9,7 +9,8 @@ import { createFlagImgPath } from '@/helpers/util';
 
 import useCountries from '@/hooks/use-countries';
 
-import { breakpoint, space } from '@/styles/helpers';
+import { BREAKPOINT } from '@/styles/constants';
+import { space } from '@/styles/helpers';
 
 const Wrapper = styled.div`
   display: grid;
@@ -29,7 +30,7 @@ const FiltersWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (max-width: ${breakpoint('md')}) {
+  @media screen and (max-width: ${BREAKPOINT.md}) {
     flex-direction: column;
     align-items: flex-start;
     gap: ${space('800')};

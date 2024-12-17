@@ -17,13 +17,8 @@ import {
 
 import useCountries from '@/hooks/use-countries';
 
-import {
-  breakpoint,
-  color,
-  fontSize,
-  fontWeight,
-  space,
-} from '@/styles/helpers';
+import { BREAKPOINT } from '@/styles/constants';
+import { color, fontSize, fontWeight, space } from '@/styles/helpers';
 
 const ControlWrapper = styled.div`
   padding-block: ${space('1400')};
@@ -35,7 +30,7 @@ const CountryWrapper = styled.div`
   gap: ${space('3200')};
   padding-bottom: ${space('3200')};
 
-  @media screen and (max-width: ${breakpoint('md')}) {
+  @media screen and (max-width: ${BREAKPOINT.md}) {
     grid-template-columns: 1fr;
     gap: ${space('800')};
   }
@@ -57,7 +52,7 @@ const InformationWrapper = styled.div`
   align-items: flex-start;
   margin-bottom: ${space('1600')};
 
-  @media screen and (max-width: ${breakpoint('md')}) {
+  @media screen and (max-width: ${BREAKPOINT.md}) {
     flex-direction: column;
     gap: ${space('800')};
     margin-bottom: ${space('800')};
@@ -72,7 +67,7 @@ const BordersWrapper = styled.div`
   display: flex;
   gap: ${space('400')};
 
-  @media screen and (max-width: ${breakpoint('md')}) {
+  @media screen and (max-width: ${BREAKPOINT.md}) {
     flex-direction: column;
   }
 `;
